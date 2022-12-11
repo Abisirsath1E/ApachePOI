@@ -13,6 +13,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 public class DataDrivenTest {
 
@@ -21,16 +23,17 @@ public class DataDrivenTest {
 	@BeforeClass
 	public void setup()
 	{
-		System.setProperty("webdriver.chrome.driver","C://Drivers/chromedriver_win32/chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
+		//System.setProperty("webdriver.chrome.driver","C://Drivers/chromedriver_win32/chromedriver.exe");
 		driver=new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		driver.get("https://admin-demo.nopcommerce.com/login");
+		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
 	
 	@Test(dataProvider="LoginData")
 	public void loginTest(String user,String pwd,String exp)
 	{
-		driver.get("https://admin-demo.nopcommerce.com/login");
 		
 		WebElement txtEmail=driver.findElement(By.id("Email"));
 		txtEmail.clear();

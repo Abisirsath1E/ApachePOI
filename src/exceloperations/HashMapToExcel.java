@@ -36,7 +36,7 @@ public class HashMapToExcel {
 		}
 		
 		
-		FileOutputStream fos=new FileOutputStream(".\\datafiles\\student.xlsx");
+		FileOutputStream fos=new FileOutputStream("D:\\ApachePOI\\ApachePOI\\datafiles\\student.xlsx");
 		
 		workbook.write(fos);
 		fos.close();

@@ -1,7 +1,7 @@
 package exceloperations;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,7 +25,7 @@ public class ExcelToDatabase {
 		stmt.execute(sql);
 		
 		//Excel
-		FileInputStream fis=new FileInputStream(".\\datafiles\\locations.xlsx");
+		FileInputStream fis=new FileInputStream("D:\\ApachePOI\\ApachePOI\\datafiles\\locations.xlsx");
 		XSSFWorkbook workbook=new XSSFWorkbook(fis);
 		XSSFSheet sheet=workbook.getSheet("Locations Data");
 		
