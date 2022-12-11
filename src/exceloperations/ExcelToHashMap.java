@@ -1,7 +1,6 @@
 package exceloperations;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +12,7 @@ public class ExcelToHashMap {
 
 	public static void main(String[] args) throws IOException {
 		
-		FileInputStream fis=new FileInputStream(".\\datafiles\\student.xlsx");
+		FileInputStream fis=new FileInputStream(".\\ApachePOI\\datafiles\\student.xlsx");
 		XSSFWorkbook workbook=new XSSFWorkbook(fis);
 		XSSFSheet sheet=workbook.getSheet("Student data");
 		
